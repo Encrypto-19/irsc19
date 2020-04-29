@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container  text-center">
+{% if users|length == 0 %}
+<h3 class="mt-5">Please log in to see your content</h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Please_log_in_image.png" alt="" class ="img-fluid"  style="width: 85vmin; height: auto;">
+{% else %}
+{% for user in users %}
+
+
+    <div class=" d-flex justify-content-center ">
+    <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" alt="Card image cap" style="border-radius: 155px;">
+        <div class="card-body">
+          <h5 class="card-title">Dear {{user.username}}, here is your information</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Username : {{user.username}}</li>
+          <li class="list-group-item">Name : {{user.name}}</li>
+          <li class="list-group-item">Email : {{user.email}}</li>
+          <li class="list-group-item">Phone : {{user.phone}}</li>
+          <li class="list-group-item">UserID : {{user.id}}</li>
+        </ul>
+      </div>
+    </div>
+
+
+{% endfor %}
+{% endif %}
+
+</div>
+{% endblock %}
+
+
+
+
+
+

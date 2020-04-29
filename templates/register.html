@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+        {{message}}
+    </div>
+    {% endfor %}
+</div>
+<div class="container mt-2">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="EnterName">Enter Name</label>
+            <input type="text" class="form-control" name="name" id="EnterName" placeholder="Enter Name" required>
+        </div>
+        <div class="form-group">
+            <label for="EnterUserame">Enter Username</label>
+            <input type="text" class="form-control" name="username" id="EnterUsername" placeholder="Enter Username" required>
+        </div>
+        <div class="form-group">
+            <label for="EnterEmail">Email address</label>
+            <input type="email" class="form-control" name="email" id="EnterEmail" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label for="EnterPhone">Enter Phone no.</label>
+            <input type="number" class="form-control" name="phone" id="EnterPhone" placeholder="Enter Phone no." required>
+        </div>
+        <div class="form-group">
+            <label for="InputPassword1">Enter Password</label>
+            <input type="password" class="form-control" name="password1" id="InputPassword1" placeholder="Enter password" required>
+            <small id="passwordHelpBlock" class="form-text text-muted">
+                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters.
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="InputPassword2">Enter Password Again</label>
+            <input type="password" class="form-control" name="password2" id="InputPassword2" placeholder="Enter Password again" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{% endblock %}
